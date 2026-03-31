@@ -33,11 +33,11 @@ const Projects = () => {
     {
       id: 4,
       name: 'Portfolio Website',
-      desc: 'Personal portfolio with dark theme and glassmorphism.',
-      image: 'https://images.unsplash.com/photo-1456324504439-367ceee240ca?q=80&w=600&auto=format&fit=crop',
+      desc: 'Personal portfolio with elegant editorial design.',
+      image: '/portfolio-preview.png',
       tech: ['React', 'Framer Motion', 'Tailwind'],
-      github: '#',
-      live: '#',
+      github: 'https://github.com/adarshraj62011-lgtm/adarsh-portfolio',
+      live: 'https://adarsh-portfolio-alpha.vercel.app/',
     },
     {
       id: 5,
@@ -60,52 +60,59 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="w-full py-20 bg-background/50">
-      <div className="max-w-7xl mx-auto px-4">
-        
+    <section id="projects" className="w-full py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+
         <div data-aos="fade-up" className="text-center mb-16">
-          <div className="animate-float">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-4 font-sans">
-              My <span className="text-gradient">Projects</span>
+          <div className="animate-float flex flex-col items-center">
+            <p className="text-sm font-bold tracking-[0.3em] text-primary uppercase mb-3">Portfolio</p>
+            <h2 className="font-serif text-4xl sm:text-5xl font-bold text-text mb-4">
+              My <span className="italic text-gradient">Projects</span>
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            <div className="section-divider mx-auto" />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map(({ id, name, desc, image, tech, github, live }) => (
-            <div 
-              key={id} 
+            <div
+              key={id}
               data-aos="fade-up"
-              className="glass rounded-2xl overflow-hidden group hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 transform hover:-translate-y-2 border border-white/5"
+              className="bg-card border border-border overflow-hidden group hover:shadow-md hover:border-primary transition-all duration-400 relative"
             >
-              <div className="relative overflow-hidden h-48 w-full">
-                <img 
-                  src={image} 
-                  alt={name} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              {/* Top accent line */}
+              <div className="absolute top-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500 z-10" />
+
+              <div className="relative overflow-hidden h-52 w-full">
+                <img
+                  src={image}
+                  alt={name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-600 grayscale-[20%] group-hover:grayscale-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-card/90 via-card/20 to-transparent opacity-70" />
               </div>
-              
+
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-2">{name}</h3>
-                <p className="text-lightText text-sm mb-4 h-10">{desc}</p>
-                
+                <h3 className="font-serif text-xl font-bold text-text mb-2">{name}</h3>
+                <p className="text-lightText text-base mb-4 leading-relaxed font-medium">{desc}</p>
+
                 <div className="flex flex-wrap gap-2 mb-6">
                   {tech.map((t, index) => (
-                    <span key={index} className="px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20">
+                    <span key={index} className="px-3 py-1 text-sm font-semibold bg-background text-text border border-border">
                       {t}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex gap-4">
-                  <a href={github} target="_blank" rel="noreferrer" className="flex-1 flex items-center justify-center gap-2 py-2 glass border border-white/10 hover:bg-white/5 rounded-lg text-sm font-medium transition-colors">
-                    <FaGithub /> GitHub
+                <div className="flex gap-3">
+                  <a href={github} target="_blank" rel="noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 py-2 border border-border text-text text-xs font-medium uppercase tracking-wider hover:border-text transition-colors">
+                    <FaGithub size={13} /> GitHub
                   </a>
-                  <a href={live} target="_blank" rel="noreferrer" className="flex-1 flex items-center justify-center gap-2 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-lg text-sm font-medium hover:scale-105 transition-transform">
-                    <FaExternalLinkAlt /> Demo
+                  <a href={live} target="_blank" rel="noreferrer"
+                    className="flex-1 flex items-center justify-center gap-2 py-2 bg-text text-background text-xs font-medium uppercase tracking-wider hover:bg-primary transition-colors">
+                    <FaExternalLinkAlt size={11} /> Live Demo
                   </a>
                 </div>
               </div>
