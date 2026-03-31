@@ -61,7 +61,6 @@ const Skills = () => {
 
   const spokenLanguages = [
     { name: 'Hindi', level: 100, proficiency: 'Native Speaker' },
-    { name: 'Bhojpuri', level: 100, proficiency: 'Native Speaker' },
     { name: 'English', level: 80, proficiency: 'Professional Fluency' },
   ];
 

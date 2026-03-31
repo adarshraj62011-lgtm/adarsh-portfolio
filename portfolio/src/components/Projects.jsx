@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Projects = () => {
+  const [toast, setToast] = useState(null);
+
+  const showToast = (message) => {
+    setToast(message);
+    setTimeout(() => setToast(null), 3000);
+  };
+
   const projects = [
     {
       id: 1,
@@ -41,11 +49,11 @@ const Projects = () => {
     },
     {
       id: 5,
-      name: 'MERN Login Auth',
-      desc: 'Secure authentication system with JWT and Bcrypt.',
-      image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=600&auto=format&fit=crop',
+      name: 'Hospital Management System',
+      desc: 'Comprehensive hospital operations platform for patients and administrators.',
+      image: '/hospital-preview.png.jpeg',
       tech: ['MongoDB', 'Express', 'React', 'Node.js'],
-      github: '#',
+      github: 'https://github.com/adarshraj62011-lgtm/Hospital-Management-System',
       live: '#',
     },
     {
@@ -110,10 +118,20 @@ const Projects = () => {
                     className="flex-1 flex items-center justify-center gap-2 py-2 border border-border text-text text-xs font-medium uppercase tracking-wider hover:border-text transition-colors">
                     <FaGithub size={13} /> GitHub
                   </a>
-                  <a href={live} target="_blank" rel="noreferrer"
-                    className="flex-1 flex items-center justify-center gap-2 py-2 bg-text text-background text-xs font-medium uppercase tracking-wider hover:bg-primary transition-colors">
-                    <FaExternalLinkAlt size={11} /> Live Demo
-                  </a>
+                  {live === '#' ? (
+                    <div
+                      onClick={() => showToast(`${name} Live Demo is Coming Soon! 🚀`)}
+                      className="flex-1 flex items-center justify-center gap-2 py-2 bg-text text-background text-xs font-medium uppercase tracking-wider hover:bg-primary transition-colors cursor-pointer"
+                    >
+                      <FaExternalLinkAlt size={11} /> Live Demo
+                    </div>
+                  ) : (
+                    <a href={live} target="_blank" rel="noreferrer"
+                      className="flex-1 flex items-center justify-center gap-2 py-2 bg-text text-background text-xs font-medium uppercase tracking-wider hover:bg-primary transition-colors"
+                    >
+                      <FaExternalLinkAlt size={11} /> Live Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
@@ -121,6 +139,22 @@ const Projects = () => {
         </div>
 
       </div>
+
+      {/* Custom Floating Toast Notification */}
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] bg-text text-background px-6 sm:px-8 py-3 sm:py-4 rounded-full flex items-center gap-3 shadow-2xl border border-primary/20 backdrop-blur-lg whitespace-nowrap"
+          >
+            <span className="text-xl animate-pulse">✨</span>
+            <span className="font-serif font-bold tracking-wide text-sm sm:text-base">{toast}</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
