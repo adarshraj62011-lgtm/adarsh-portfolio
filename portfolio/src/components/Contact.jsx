@@ -95,13 +95,13 @@ const Contact = () => {
             <h3 className="font-serif text-2xl font-bold text-text mb-8">Send Me A Message</h3>
 
             <form
-              action="https://formsubmit.co/adarshraj62011@gmail.com"
+              action="https://api.web3forms.com/submit"
               method="POST"
               className="flex flex-col gap-5"
               onSubmit={() => setLoading(true)}
             >
-              <input type="hidden" name="_subject" value="New submission from your Portfolio!" />
-              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="access_key" value="c3785902-0fd9-49cc-9e00-00f3ce3b68fa" />
+              <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 
               <div className="flex flex-col sm:flex-row gap-5">
                 <input
