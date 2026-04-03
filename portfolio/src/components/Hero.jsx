@@ -99,7 +99,7 @@ const Hero = () => {
               className="cursor-pointer px-8 py-3 bg-text text-background font-medium text-sm tracking-wider uppercase hover:bg-primary hover:text-white transition-all duration-300">
               View Projects
             </Link>
-            <a href="/resume.pdf" download
+            <a href="/resume.pdf" download="Adarsh_Resume.pdf"
               className="cursor-pointer px-8 py-3 border border-text text-text font-medium text-sm tracking-wider uppercase hover:bg-text hover:text-background transition-all duration-300">
               My Resume
             </a>

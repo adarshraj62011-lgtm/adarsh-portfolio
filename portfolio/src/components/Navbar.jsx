@@ -52,7 +52,7 @@ const Navbar = () => {
             </ul>
             <a
               href="/resume.pdf"
-              download
+              download="Adarsh_Resume.pdf"
               className="flex items-center gap-2 px-5 py-2 border border-primary text-primary rounded-none font-medium hover:bg-primary hover:text-white transition-all duration-300 text-sm tracking-wider uppercase"
             >
               <FiDownload size={14} /> Resume
@@ -79,7 +79,7 @@ const Navbar = () => {
           <li>
             <a
               href="/resume.pdf"
-              download
+              download="Adarsh_Resume.pdf"
               className="flex items-center gap-2 px-8 py-3 border border-primary text-primary font-medium hover:bg-primary hover:text-white transition-all duration-300 uppercase tracking-wider text-sm"
             >
               <FiDownload size={14} /> Resume
